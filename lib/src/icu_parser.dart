@@ -6,7 +6,7 @@
 /// messages. See extract_to_arb.dart and make_hardcoded_translation.dart.
 library icu_parser;
 
-import '../src/intl_message.dart';
+import 'intl_message.dart';
 import 'package:petitparser/petitparser.dart';
 
 /// This defines a grammar for ICU MessageFormat syntax. Usage is

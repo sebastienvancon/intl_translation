@@ -24,10 +24,10 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
 
-import '../extract_messages.dart';
-import '../generate_localized.dart';
-import '../src/intl_message.dart';
-import '../src/icu_parser.dart';
+import '../lib/extract_messages.dart';
+import '../lib/generate_localized.dart';
+import '../lib/src/intl_message.dart';
+import '../lib/src/icu_parser.dart';
 
 /// Keeps track of all the messages we have processed so far, keyed by message
 /// name.

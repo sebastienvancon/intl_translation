@@ -12,8 +12,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
-import '../extract_messages.dart';
-import '../src/intl_message.dart';
+import '../lib/extract_messages.dart';
+import '../lib/src/intl_message.dart';
 import 'package:path/path.dart' as path;
 
 main(List<String> args) {

@@ -12,8 +12,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:intl_translation/extract_messages.dart';
-import 'package:intl_translation/src/intl_message.dart';
+import '../extract_messages.dart';
+import '../src/intl_message.dart';
 import 'package:path/path.dart' as path;
 
 main(List<String> args) {
@@ -110,13 +110,13 @@ String leaveTheInterpolationsInDartForm(MainMessage msg, chunk) {
 Map toARB(MainMessage message, MessageExtraction extraction) {
   if (message.messagePieces.isEmpty) return null;
   var out = {};
-  out[message.name] = icuForm(message);
+  out[message.name + message.sufix] = icuForm(message);
 
   if (!extraction.suppressMetaData) {
-    out["@${message.name}"] = arbMetadata(message);
+    out["@${message.name +message.sufix}"] = arbMetadata(message);
 
     if (extraction.includeSourceText) {
-      out["@${message.name}"]["source_text"] = out[message.name];
+      out["@${message.name+message.sufix}"]["source_text"] = out[message.name+message.sufix];
     }
   }
 

@@ -6,7 +6,7 @@
 /// automatically, primarily used by the transformer.
 import 'package:analyzer/analyzer.dart';
 
-import 'package:intl_translation/extract_messages.dart';
+import '../extract_messages.dart';
 
 /// Rewrite all Intl.message/plural/etc. calls in [source], adding "name"
 /// and "args" parameters if they are not provided.

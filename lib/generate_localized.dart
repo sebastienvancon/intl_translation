@@ -21,7 +21,7 @@ class MessageGeneration {
   /// If the import path following package: is something else, modify the
   /// [intlImportPath] variable to change the import directives in the generated
   /// code.
-  var intlImportPath = 'intl';
+  var intlImportPath = 'intl_custom';
 
   /// If the path to the generated files is something other than the current
   /// directory, update the [generatedImportPath] variable to change the import
@@ -125,7 +125,7 @@ class MessageGeneration {
             .toList()
               ..sort((a, b) => a.name.compareTo(b.name)))
         .map((original) =>
-            '    "${original.escapeAndValidateString(original.name)}" '
+            '    "${original.escapeAndValidateString(original.name + original.sufix)}" '
             ': ${_mapReference(original, locale)}');
     output..write(entries.join(",\n"))..write("\n  };\n}\n");
   }

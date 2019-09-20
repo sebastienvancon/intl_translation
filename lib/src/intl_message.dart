@@ -64,6 +64,8 @@ abstract class Message {
   /// The name of the top-level [MainMessage].
   String get name => parent == null ? '<unnamed>' : parent.name;
 
+  String get sufix => parent == null ? '' : parent.sufix;
+
   static final _evaluator = new ConstantEvaluator();
 
   String _evaluateAsString(expression) {
@@ -473,6 +475,7 @@ class MainMessage extends ComplexMessage {
   /// The name, which may come from the function name, from the arguments
   /// to Intl.message, or we may just re-use the message.
   String _name;
+  String _suffix;
 
   /// A placeholder for any other identifier that the translation format
   /// may want to use.
@@ -500,6 +503,10 @@ class MainMessage extends ComplexMessage {
   String get name => _name ?? "";
   set name(String newName) {
     _name = newName;
+  }
+  String get sufix => _suffix ?? "";
+  set sufix(String newName) {
+    _suffix = newName;
   }
 
   /// Does this message have an assigned name.
@@ -588,6 +595,9 @@ class MainMessage extends ComplexMessage {
         return;
       case "name":
         name = value;
+        return;
+      case "sufix":
+        sufix = value;
         return;
       // We use the actual args from the parser rather than what's given in the
       // arguments to Intl.message.

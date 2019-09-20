@@ -24,10 +24,10 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
 
-import 'package:intl_translation/extract_messages.dart';
-import 'package:intl_translation/generate_localized.dart';
-import 'package:intl_translation/src/intl_message.dart';
-import 'package:intl_translation/src/icu_parser.dart';
+import '../extract_messages.dart';
+import '../generate_localized.dart';
+import '../src/intl_message.dart';
+import '../src/icu_parser.dart';
 
 /// Keeps track of all the messages we have processed so far, keyed by message
 /// name.
@@ -173,7 +173,13 @@ BasicTranslatedMessage recreateIntlObjects(String id, data) {
   if (parsed is LiteralString && parsed.string.isEmpty) {
     parsed = plainParser.parse(data).value;
   }
-  return new BasicTranslatedMessage(id, parsed);
+  String newId = '';
+  messages.forEach((name, list){
+    if (list.first.name + list.first.sufix== id){
+      newId = list.first.name;
+    }
+  });
+  return new BasicTranslatedMessage(newId, parsed);
 }
 
 /// A TranslatedMessage that just uses the name as the id and knows how to look

@@ -23,7 +23,7 @@ import 'dart:io';
 
 import 'package:analyzer/analyzer.dart';
 import 'package:analyzer/dart/ast/standard_ast_factory.dart';
-import 'package:intl_translation/src/intl_message.dart';
+import 'src/intl_message.dart';
 
 /// A function that takes a message and does something useful with it.
 typedef void OnMessage(String message);

@@ -1,8 +1,8 @@
-Intl_translation
+Intl_translation_custom
 ====
 
 This package provides message extraction and code generation from translated
-messages for the [Intl][Intl] package. It's a separate package so as to not
+messages for the [Intl][Intl_custom] package. It's a separate package so as to not
 require a dependency on analyzer for all users.
 
 ## Extracting And Using Translated Messages
@@ -13,7 +13,7 @@ results need to be incorporated.
 
 To extract messages, run the `extract_to_arb.dart` program.
 
-      pub run intl_translation:extract_to_arb --output-dir=target/directory
+      pub run intl_translation_custom:extract_to_arb --output-dir=target/directory
           my_program.dart more_of_my_program.dart
 
 This will produce a file `intl_messages.arb` with the messages from
@@ -24,10 +24,10 @@ resulting translations can be used to generate a set of libraries using
 the `generate_from_arb.dart` program.
 
 This expects to receive a series of files, one per
-locale.
+locale. You need to create one ARB files per locale named `intl_[localeCode].arb`.
 
 ```
-pub run intl_translation:generate_from_arb --generated-file-prefix=<prefix>
+pub run intl_translation_custom:generate_from_arb --generated-file-prefix=<prefix>
     <my_dart_files> <translated_ARB_files>
 ```
 
@@ -46,6 +46,6 @@ original.
 Once the Future returned from the initialization call completes, the
 message data is available.
 
-[Intl]: https://www.dartdocs.org/documentation/intl/latest
+[Intl_custom]: https://github.com/sebastienvancon/intl
 [Intl.message]: https://www.dartdocs.org/documentation/intl/latest/intl/Intl/message.html
 [ARB]: https://code.google.com/p/arb/wiki/ApplicationResourceBundleSpecification
